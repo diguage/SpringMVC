@@ -1,6 +1,10 @@
 package com.diguage.learning.springmvc.introduction.web;
 
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import org.slf4j.Logger;
 
 /**
  * SpringMVC 示例
@@ -11,4 +15,12 @@ import org.springframework.stereotype.Controller;
  */
 @Controller
 public class HelloController {
+
+    private static final Logger log = LoggerFactory.getLogger(HelloController.class);
+
+    @RequestMapping(value = {"/", "/hello"})
+    public String hello() {
+        log.debug("The {} method run", "hello");
+        return "hello";
+    }
 }
